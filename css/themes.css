@@ -10,21 +10,14 @@
   --dark-70: rgba(24, 19, 18, 0.7);
   --light-70: rgba(243, 235, 228, 0.7);
   --light-8: rgba(243, 235, 228, 0.08);
+  --light-16: rgba(243, 235, 228, 0.16);
   --dark-16: rgba(24, 19, 18, 0.16);
 
   --border-light: rgba(24, 19, 18, 0.12);
-  --border-dark: rgba(243, 235, 228, 0.12);
+  --border-dark: rgba(243, 235, 228, 0.18);
 
   --font-display: 'Playfair Display', 'Times New Roman', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-main: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4rem;
 
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
@@ -37,18 +30,22 @@
   --bg: var(--light-secondary);
   --bg-alt: var(--light);
   --text: var(--dark);
-  --text-muted: rgba(24, 19, 18, 0.6);
+  --text-secondary: rgba(24, 19, 18, 0.75);
+  --text-muted: rgba(24, 19, 18, 0.55);
   --card-bg: var(--light);
   --card-border: var(--border-light);
-  --nav-bg: rgba(216, 205, 188, 0.9);
+  --nav-bg: rgba(216, 205, 188, 0.92);
+  --input-bg: rgba(24, 19, 18, 0.04);
 }
 
 [data-theme="dark"] {
   --bg: var(--dark);
   --bg-alt: var(--dark-secondary);
   --text: var(--light);
-  --text-muted: rgba(243, 235, 228, 0.6);
+  --text-secondary: rgba(243, 235, 228, 0.75);
+  --text-muted: rgba(243, 235, 228, 0.55);
   --card-bg: var(--dark-secondary);
   --card-border: var(--border-dark);
-  --nav-bg: rgba(24, 19, 18, 0.9);
+  --nav-bg: rgba(24, 19, 18, 0.92);
+  --input-bg: rgba(243, 235, 228, 0.06);
 }
