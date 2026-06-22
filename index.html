@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/style.css">
@@ -53,6 +53,15 @@
     <div class="u-container">
       <div class="hero-content">
         <div class="hero-left">
+          <div class="hero-image">
+            <div class="photocard">
+              <div class="photocard-inner">
+                <img src="assets/images/profile.jpg" alt="Profile photo">
+              </div>
+              <div class="photocard-label">Abdullah Al Arif / AI Engineer</div>
+              <span class="photocard-stamp">'26</span>
+            </div>
+          </div>
           <p class="hero-eyebrow">AI Engineer</p>
           <h1 class="hero-heading">
             <span class="line"><span class="line-inner">Built to solve.</span></span>
@@ -151,18 +160,39 @@
   <section class="u-section u-theme-light" id="about">
     <div class="u-container section-padding">
       <div class="about-intro reveal-up" style="text-align:center;max-width:70ch;margin:0 auto 5rem;">
-        <p class="section-eyebrow" style="text-align:center;">About</p>
-        <h2 class="section-heading center" style="text-align:center;margin-left:auto;margin-right:auto;">Turning
+        <p class="section-eyebrow" style="text-align:center;letter-spacing:0.15em;">About</p>
+        <h2 class="section-heading center" style="text-align:center;margin-left:auto;margin-right:auto;line-height:1.15;letter-spacing:-0.02em;">Turning
           research into<br>real-world AI systems.</h2>
-        <p style="font-size:1.125rem;color:var(--text-secondary);line-height:1.8;margin-top:1.5rem;">
-          I'm <strong style="color:var(--text);">Abdullah Al Arif</strong>, an AI Engineer with hands-on experience
-          building production-grade AI systems. During my internship at Software Intelligence Ltd, I worked on RAG
-          pipelines, agentic AI workflows, and MCP integrations — handling the full stack from data ingestion to LLM
-          response generation.
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:400;font-style:italic;color:rgba(24,19,18,0.82);line-height:1.75;margin-top:2rem;letter-spacing:0.01em;">
+          I didn't start with a roadmap. I started with curiosity — and a stubborn need to understand how things
+          actually work under the hood.
         </p>
-        <p style="font-size:1.0625rem;color:var(--text-muted);line-height:1.8;margin-top:1rem;">
-          I'm passionate about turning research into real-world applications. From implementing CNNs from scratch to
-          fine-tuning LLMs with QLoRA, I love understanding how things work at every level.
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:400;color:rgba(24,19,18,0.85);line-height:1.9;margin-top:1.5rem;letter-spacing:0.01em;">
+          I'm <strong style="color:rgba(24,19,18,1);font-weight:700;font-family:'Cormorant Garamond',Georgia,serif;">Abdullah Al Arif</strong>, an AI Engineer from
+          Bangladesh. My journey into AI started right after finishing my high school diploma — driven by the math,
+          the papers, and a lot of broken code. I got into this field by going deep: reading the math before touching
+          the framework, tracing the attention mechanism before using a transformer, following the gradient all the
+          way back before trusting a training loop.
+        </p>
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:400;color:rgba(24,19,18,0.85);line-height:1.9;margin-top:1.5rem;letter-spacing:0.01em;">
+          During my internship at Software Intelligence Ltd, I stopped treating AI as magic and started treating it
+          as infrastructure. I built production RAG pipelines, reduced hallucination through Pydantic citation
+          enforcement and cross-encoder reranking — tracked with Ragas evaluation — and integrated MCP and A2A
+          protocols end-to-end. That's where I learned the part most tutorials skip: evaluation, observability,
+          and what happens when your system meets real data.
+        </p>
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:400;color:rgba(24,19,18,0.85);line-height:1.9;margin-top:1.5rem;letter-spacing:0.01em;">
+          I'm still early in my career. But I build seriously, document what I learn, and ship things that work
+          beyond the demo. I believe the engineers who will matter in this decade aren't the ones who know the most
+          APIs — they're the ones who understand the systems deeply enough to fix them when they break.
+        </p>
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;font-weight:500;font-style:italic;color:rgba(24,19,18,0.78);line-height:1.75;margin-top:1.75rem;letter-spacing:0.015em;">
+          That's what I'm working toward.
         </p>
       </div>
 
@@ -233,6 +263,33 @@
             <span class="skill-tag">Streamlit</span>
             <span class="skill-tag">Flask</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="u-section u-theme-dark-alt" id="philosophy">
+    <div class="u-container section-padding">
+      <div style="margin-bottom:4rem;" class="reveal-up">
+        <p class="section-eyebrow">Philosophy</p>
+        <h2 class="section-heading" style="color:var(--light);">Hard truths about building<br>AI that ships.</h2>
+      </div>
+      <div class="philosophy-grid">
+        <div class="philosophy-card reveal-up stagger-1">
+          <span class="philosophy-number">01</span>
+          <h3>Evaluation is the real skill.</h3>
+          <p>Anyone can call an API. The hard part is knowing whether it works — golden datasets, hallucination detection, LLM-as-judge, and drift monitoring are what separate prototypes from systems you can trust in production.</p>
+        </div>
+        <div class="philosophy-card reveal-up stagger-2">
+          <span class="philosophy-number">02</span>
+          <h3>Production thinking beats accuracy.</h3>
+          <p>A model that scores 0.95 in a notebook but can't handle latency, cost, or scale is a liability. I optimize for the full stack: serving, observability, failure modes, and the infrastructure that keeps AI reliable under real load.</p>
+        </div>
+        <div class="philosophy-card reveal-up stagger-3">
+          <span class="philosophy-number">03</span>
+          <h3>Ship, don't slide.</h3>
+          <p>95% of AI roles are applied, not research. I focus on end-to-end delivery — from data pipeline to deployed API — because companies hire engineers who can build, deploy, scale, and measure. Not just present.</p>
         </div>
       </div>
     </div>

@@ -16,8 +16,8 @@
   --border-light: rgba(24, 19, 18, 0.12);
   --border-dark: rgba(243, 235, 228, 0.18);
 
-  --font-display: 'Playfair Display', 'Times New Roman', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;

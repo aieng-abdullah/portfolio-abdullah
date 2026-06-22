@@ -79,6 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroDesc = document.querySelector('.hero-desc');
     const heroCta = document.querySelector('.hero-cta');
 
+    const heroImage = document.querySelector('.hero-image');
+
+    if (heroImage) {
+      heroImage.style.opacity = '1';
+      heroImage.style.transform = 'translateY(0)';
+      heroImage.style.transition = 'opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
+    }
+
     if (heroEyebrow) {
       heroEyebrow.style.opacity = '1';
       heroEyebrow.style.transform = 'translateY(0)';
