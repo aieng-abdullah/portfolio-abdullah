@@ -159,18 +159,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // Contact form
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('.btn-primary');
-      const origText = btn.innerHTML;
-      btn.innerHTML = 'Message Sent!';
-      btn.style.background = '#22c55e';
-      btn.style.borderColor = '#22c55e';
+      const span = btn.querySelector('span');
+      const origText = span.textContent;
+
+      span.textContent = 'Sending...';
+      btn.style.pointerEvents = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          span.textContent = 'Message Sent!';
+          btn.style.background = '#22c55e';
+          btn.style.borderColor = '#22c55e';
+          form.reset();
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        span.textContent = 'Failed to send';
+        btn.style.background = '#dc2626';
+        btn.style.borderColor = '#dc2626';
+      }
+
       setTimeout(() => {
-        btn.innerHTML = origText;
+        span.textContent = origText;
         btn.style.background = '';
         btn.style.borderColor = '';
-        form.reset();
+        btn.style.pointerEvents = '';
       }, 3000);
     });
   }
