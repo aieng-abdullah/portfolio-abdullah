@@ -208,4 +208,66 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Medium blog posts
+  async function loadMediumPosts() {
+    const grid = document.getElementById('blogGrid');
+    if (!grid) return;
+
+    grid.innerHTML =
+      '<div class="blog-loading" style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--muted);">Loading articles...</div>';
+
+    try {
+      const res = await fetch(
+        'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@aieng.abdullah.arif'
+      );
+      const data = await res.json();
+
+      if (data.status !== 'ok' || !data.items || !data.items.length) {
+        throw new Error('No articles found');
+      }
+
+      grid.innerHTML = '';
+      const items = data.items.slice(0, 6);
+
+      items.forEach((item, i) => {
+        const card = document.createElement('a');
+        card.href = item.link;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        card.className = `blog-card reveal-up stagger-${(i % 3) + 1}`;
+
+        const desc = item.description
+          .replace(/<[^>]*>/g, '')
+          .substring(0, 160)
+          .replace(/\s+\S*$/, '');
+
+        card.innerHTML = `
+          <div class="blog-card-label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+            </svg>
+            Medium
+          </div>
+          <h3></h3>
+          <p></p>
+          <span class="blog-card-read">Read on Medium <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        `;
+
+        card.querySelector('h3').textContent = item.title;
+        card.querySelector('p').textContent = desc + '…';
+
+        grid.appendChild(card);
+
+        setTimeout(() => {
+          card.classList.add('is-visible');
+        }, 100 + i * 120);
+      });
+    } catch {
+      grid.innerHTML =
+        '<div class="blog-error" style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--muted);">Unable to load articles. <a href="https://medium.com/@aieng.abdullah.arif" target="_blank" rel="noopener" style="color:var(--accent);">Visit Medium →</a></div>';
+    }
+  }
+
+  loadMediumPosts();
 });

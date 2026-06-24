@@ -41,5 +41,13 @@ None. Open `index.html` in a browser to preview. No linting, formatting, or test
 ## Gotchas
 
 - Contact form is a **stub**: `formspree.io/f/YOUR_FORM_ID` placeholder — shows fake success message after 3s, does not actually submit
-- All project/blog links point to external GitHub repos and Medium articles — no local content
+- All project links point to external GitHub repos — no local content
 - Two separate `DOMContentLoaded` listeners (one in `main.js`, one in `animations.js`) — not bundled
+
+## Medium blog feed
+
+- Blog section in `index.html` is an empty container (`#blogGrid`)
+- `js/main.js:212-272` — `loadMediumPosts()` fetches from Medium's RSS feed via `api.rss2json.com` (supports CORS) and renders up to 6 article cards
+- Cards use the same `reveal-up` / `stagger-N` classes as the static ones; `is-visible` is added with staggered `setTimeout` since the IntersectionObserver in `animations.js` only runs on DOMContentLoaded
+- Title and description are set via `textContent` (XSS-safe)
+- On fetch error, shows a fallback link to the Medium profile
