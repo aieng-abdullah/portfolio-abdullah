@@ -583,6 +583,11 @@ img {
   margin-bottom: 1rem;
 }
 
+#certifications .section-eyebrow {
+  color: var(--dark);
+  font-weight: 700;
+}
+
 .section-heading {
   font-family: var(--font-display);
   font-size: clamp(2.25rem, 4.5vw, 3.5rem);
