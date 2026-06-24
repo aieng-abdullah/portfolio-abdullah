@@ -47,7 +47,7 @@ None. Open `index.html` in a browser to preview. No linting, formatting, or test
 ## Medium blog feed
 
 - Blog section in `index.html` is an empty container (`#blogGrid`)
-- `js/main.js:212-262` — `loadMediumPosts()` fetches from Medium's RSS feed via `api.rss2json.com` (CORS-supported); `renderMediumPosts()` renders up to 6 article cards
+- `js/main.js:212-289` — `loadMediumPosts()` fetches from Medium's RSS feed via `api.rss2json.com` (CORS-supported, with JSONP fallback); `renderMediumPosts()` renders up to 6 article cards
 - Cards use the same `reveal-up` / `stagger-N` classes as the static ones; `is-visible` is added with staggered `setTimeout` since the IntersectionObserver in `animations.js` only runs on DOMContentLoaded
 - Title and description are set via `textContent` (XSS-safe)
 - On fetch error, shows a fallback link to the Medium profile

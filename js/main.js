@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Medium blog posts
-  function renderMediumPosts(data) {
+  window.renderMediumPosts = function (data) {
     const grid = document.getElementById('blogGrid');
     if (!grid) return;
 
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
 
-    fetch(apiUrl)
+    fetch(apiUrl, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
         clearTimeout(timeout);
@@ -279,7 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(() => {
         clearTimeout(timeout);
-        renderMediumPosts(null);
+        const script = document.createElement('script');
+        script.src = apiUrl + '&callback=renderMediumPosts';
+        script.onerror = () => renderMediumPosts(null);
+        document.body.appendChild(script);
       });
   }
 
