@@ -2059,14 +2059,14 @@ img {
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .cert-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 1.25rem;
   transition: all 0.4s var(--ease-out);
 }
 
@@ -2079,13 +2079,13 @@ img {
 .cert-card-header {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .cert-card-logo {
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
   background: rgba(252, 170, 45, 0.1);
   display: flex;
@@ -2102,40 +2102,40 @@ img {
 }
 
 .cert-card-logo svg {
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
 }
 
 .cert-card-info h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--text);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .cert-card-issuer {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--brand);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .cert-card-date {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .cert-card-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.3rem;
 }
 
 .cert-card-skills span {
-  font-size: 0.75rem;
-  padding: 0.3rem 0.75rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 2rem;
   border: 1px solid var(--card-border);
   color: var(--text-secondary);
