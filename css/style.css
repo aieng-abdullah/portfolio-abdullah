@@ -1460,6 +1460,14 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .stats-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
   }
@@ -2038,4 +2046,114 @@ img {
 .form-group-new textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+/* ─── OPEN SOURCE STATS ─── */
+.stats-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ─── CERTIFICATIONS ─── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cert-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.4s var(--ease-out);
+}
+
+.cert-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cert-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cert-card-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(252, 170, 45, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease-out);
+}
+
+.cert-card:hover .cert-card-logo {
+  background: var(--brand);
+  color: var(--dark);
+}
+
+.cert-card-logo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.cert-card-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.cert-card-issuer {
+  font-size: 0.85rem;
+  color: var(--brand);
+  font-weight: 500;
+}
+
+.cert-card-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.cert-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cert-card-skills span {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2rem;
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.cert-card:hover .cert-card-skills span {
+  border-color: rgba(252, 170, 45, 0.3);
+  color: var(--text);
+}
+
+.u-theme-light .cert-card {
+  box-shadow: 0 8px 28px rgba(16, 24, 32, 0.06);
+  border: 1px solid rgba(16, 24, 32, 0.06);
+}
+
+.u-theme-light .cert-card-skills span {
+  color: rgba(24, 19, 18, 0.75);
+  border-color: rgba(24, 19, 18, 0.06);
+  background: rgba(24, 19, 18, 0.02);
 }

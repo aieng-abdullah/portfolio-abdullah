@@ -44,6 +44,12 @@ None. Open `index.html` in a browser to preview. No linting, formatting, or test
 - All project links point to external GitHub repos — no local content
 - Two separate `DOMContentLoaded` listeners (one in `main.js`, one in `animations.js`) — not bundled
 
+## Sections
+
+- **Experience, Open Source, Certifications, Blog** — order is: Experience → Open Source → Certifications → Blog
+- Open Source section uses `stats-grid-3` (3-column) with stat cards; Certifications uses `cert-grid` (2-column) with cert cards
+- Nav and footer include links to `#opensource` and `#certifications`
+
 ## Medium blog feed
 
 - Blog section in `index.html` is an empty container (`#blogGrid`)
