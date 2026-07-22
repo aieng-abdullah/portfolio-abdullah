@@ -127,8 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let tokenQueue = [];
     let rendering = false;
+    let streamDone = false;
 
     function flushTokens() {
+      if (streamDone && !tokenQueue.length) {
+        if (bubbleEl) linkifyContent(bubbleEl);
+        rendering = false;
+        return;
+      }
       if (!tokenQueue.length) { rendering = false; return; }
       rendering = true;
       const batch = tokenQueue.splice(0, 3);
@@ -160,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!rendering) requestAnimationFrame(flushTokens);
       },
       () => {
-        hideTyping();
-        if (bubbleEl) linkifyContent(bubbleEl);
+        streamDone = true;
+        if (!rendering) requestAnimationFrame(flushTokens);
         isLoading = false;
         sendBtn.disabled = false;
         input.focus();
