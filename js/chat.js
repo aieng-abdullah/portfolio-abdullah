@@ -92,18 +92,45 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMessage('user', text);
     showTyping();
 
-    try {
-      const response = await ChatService.sendMessage(text);
-      hideTyping();
-      renderMessage('assistant', response);
-    } catch (err) {
-      hideTyping();
-      renderError('Something went wrong. Please try again.');
-    }
+    let assistantMsgEl = null;
+    let streamed = false;
 
-    isLoading = false;
-    sendBtn.disabled = false;
-    input.focus();
+    ChatService.sendMessageStream(
+      text,
+      (token) => {
+        if (!assistantMsgEl) {
+          hideTyping();
+          assistantMsgEl = document.createElement('div');
+          assistantMsgEl.className = 'chat-msg chat-msg-assistant';
+          const bubble = document.createElement('div');
+          bubble.className = 'chat-bubble';
+          assistantMsgEl.appendChild(bubble);
+          const label = document.createElement('div');
+          label.className = 'chat-msg-label';
+          label.textContent = 'Assistant';
+          assistantMsgEl.appendChild(label);
+          messages.appendChild(assistantMsgEl);
+        }
+        assistantMsgEl.querySelector('.chat-bubble').textContent += token;
+        scrollToBottom();
+        streamed = true;
+      },
+      () => {
+        hideTyping();
+        isLoading = false;
+        sendBtn.disabled = false;
+        input.focus();
+      },
+      () => {
+        hideTyping();
+        if (!streamed) {
+          renderError('Something went wrong. Please try again.');
+        }
+        isLoading = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    );
   }
 
   sendBtn.addEventListener('click', sendMessage);
