@@ -95,9 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let assistantMsgEl = null;
     let streamed = false;
 
-    ChatService.sendMessageStream(
-      text,
-      (token) => {
+    let tokenQueue = [];
+    let rendering = false;
+
+    function flushTokens() {
+      if (!tokenQueue.length) { rendering = false; return; }
+      rendering = true;
+      const batch = tokenQueue.splice(0, 3);
+      for (const t of batch) {
         if (!assistantMsgEl) {
           hideTyping();
           assistantMsgEl = document.createElement('div');
@@ -111,9 +116,18 @@ document.addEventListener('DOMContentLoaded', () => {
           assistantMsgEl.appendChild(label);
           messages.appendChild(assistantMsgEl);
         }
-        assistantMsgEl.querySelector('.chat-bubble').textContent += token;
-        scrollToBottom();
+        assistantMsgEl.querySelector('.chat-bubble').textContent += t;
         streamed = true;
+      }
+      scrollToBottom();
+      requestAnimationFrame(flushTokens);
+    }
+
+    ChatService.sendMessageStream(
+      text,
+      (token) => {
+        tokenQueue.push(token);
+        if (!rendering) requestAnimationFrame(flushTokens);
       },
       () => {
         hideTyping();
