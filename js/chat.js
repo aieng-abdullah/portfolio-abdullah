@@ -82,22 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Linkify ───
   function linkifyContent(el) {
     const text = el.textContent;
-    const pattern = /(https?:\/\/[^\s]+|[^\s@]+@[^\s@]+\.[^\s@]+)/g;
-    const parts = text.split(pattern);
-
-    el.innerHTML = '';
-    for (let i = 0; i < parts.length; i++) {
-      if (i % 2 === 0) {
-        el.appendChild(document.createTextNode(parts[i]));
-      } else {
-        const a = document.createElement('a');
-        a.href = parts[i].startsWith('http') ? parts[i] : 'mailto:' + parts[i];
-        a.textContent = parts[i];
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        el.appendChild(a);
+    const urlPattern = /(https?:\/\/[^\s]+)|((?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?)|([^\s@]+@[^\s@]+\.[^\s@]+)/g;
+    const parts = [];
+    let lastIdx = 0;
+    let match;
+    while ((match = urlPattern.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        parts.push(document.createTextNode(text.slice(lastIdx, match.index)));
       }
+      let href = match[0];
+      if (match[2]) href = 'https://' + match[0];
+      else if (match[3]) href = 'mailto:' + match[0];
+      const a = document.createElement('a');
+      a.href = href;
+      a.textContent = match[0];
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      parts.push(a);
+      lastIdx = match.index + match[0].length;
     }
+    if (lastIdx < text.length) {
+      parts.push(document.createTextNode(text.slice(lastIdx)));
+    }
+    el.innerHTML = '';
+    for (const p of parts) el.appendChild(p);
   }
 
   // ─── Send ───
