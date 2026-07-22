@@ -30,53 +30,50 @@ const ChatService = (() => {
     return data.response || 'No response from assistant.';
   }
 
-  async function sendMessageStream(message, onToken, onDone, onError) {
-    try {
-      const res = await fetch(`${API_BASE}/api/chat/${SLUG}/stream`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          sessionId: getSessionId(),
-          message,
-        }),
-      });
+  function sendMessageStream(message, onToken, onDone, onError) {
+    const xhr = new XMLHttpRequest();
+    let prevLen = 0;
+    let leftover = '';
 
-      if (!res.ok) {
-        throw new Error('Network response was not ok (' + res.status + ')');
-      }
+    xhr.open('POST', `${API_BASE}/api/chat/${SLUG}/stream`);
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
+    xhr.onprogress = function () {
+      const data = xhr.responseText.slice(prevLen);
+      prevLen = xhr.responseText.length;
+      if (!data && !leftover) return;
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+      const combined = leftover + data;
+      const lines = combined.split('\n');
+      leftover = lines.pop() || '';
 
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-
-        for (const line of lines) {
-          const trimmed = line.trim();
-          if (!trimmed.startsWith('data: ')) continue;
-
-          try {
-            const parsed = JSON.parse(trimmed.slice(6));
-            if (parsed.token) {
-              onToken(parsed.token);
-            } else if (parsed.done) {
-              onDone(parsed.fullResponse || '');
-            } else if (parsed.error) {
-              onError(parsed.error);
-            }
-          } catch {
-          }
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith('data: ')) continue;
+        try {
+          const parsed = JSON.parse(trimmed.slice(6));
+          if (parsed.token) onToken(parsed.token);
+        } catch {
         }
       }
-    } catch (err) {
-      onError(err.message || 'Something went wrong.');
-    }
+    };
+
+    xhr.onload = function () {
+      if (xhr.status < 200 || xhr.status >= 300) {
+        onError('Server error (' + xhr.status + ')');
+        return;
+      }
+      onDone('');
+    };
+
+    xhr.onerror = function () {
+      onError('Network error');
+    };
+
+    xhr.send(JSON.stringify({
+      sessionId: getSessionId(),
+      message,
+    }));
   }
 
   return { getSessionId, sendMessage, sendMessageStream };
