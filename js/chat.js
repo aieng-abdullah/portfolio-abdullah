@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Linkify ───
   function linkifyContent(el) {
     const text = el.textContent;
-    const urlPattern = /(https?:\/\/[^\s]+)|((?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?)|([^\s@]+@[^\s@]+\.[^\s@]+)/g;
+    const urlPattern = /(https?:\/\/[^\s]+)|([^\s@]+@[^\s@]+\.[^\s@]+)|((?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?)/g;
     const parts = [];
     let lastIdx = 0;
     let match;
@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         parts.push(document.createTextNode(text.slice(lastIdx, match.index)));
       }
       let href = match[0];
-      if (match[2]) href = 'https://' + match[0];
-      else if (match[3]) href = 'mailto:' + match[0];
+      if (match[2]) href = 'mailto:' + match[0];
+      else if (match[3]) href = 'https://' + match[0];
       const a = document.createElement('a');
       a.href = href;
       a.textContent = match[0];
