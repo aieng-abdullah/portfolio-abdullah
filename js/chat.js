@@ -79,6 +79,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el) el.remove();
   }
 
+    // ─── Linkify ───
+  function linkifyContent(el) {
+    const text = el.textContent;
+    const pattern = /(https?:\/\/[^\s]+|[^\s@]+@[^\s@]+\.[^\s@]+)/g;
+    const parts = text.split(pattern);
+
+    el.innerHTML = '';
+    for (let i = 0; i < parts.length; i++) {
+      if (i % 2 === 0) {
+        el.appendChild(document.createTextNode(parts[i]));
+      } else {
+        const a = document.createElement('a');
+        a.href = parts[i].startsWith('http') ? parts[i] : 'mailto:' + parts[i];
+        a.textContent = parts[i];
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        el.appendChild(a);
+      }
+    }
+  }
+
   // ─── Send ───
   async function sendMessage() {
     const text = input.value.trim();
@@ -93,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showTyping();
 
     let assistantMsgEl = null;
+    let bubbleEl = null;
     let streamed = false;
 
     let tokenQueue = [];
@@ -107,16 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
           hideTyping();
           assistantMsgEl = document.createElement('div');
           assistantMsgEl.className = 'chat-msg chat-msg-assistant';
-          const bubble = document.createElement('div');
-          bubble.className = 'chat-bubble';
-          assistantMsgEl.appendChild(bubble);
+          bubbleEl = document.createElement('div');
+          bubbleEl.className = 'chat-bubble';
+          assistantMsgEl.appendChild(bubbleEl);
           const label = document.createElement('div');
           label.className = 'chat-msg-label';
           label.textContent = 'Assistant';
           assistantMsgEl.appendChild(label);
           messages.appendChild(assistantMsgEl);
         }
-        assistantMsgEl.querySelector('.chat-bubble').textContent += t;
+        bubbleEl.textContent += t;
         streamed = true;
       }
       scrollToBottom();
@@ -131,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       () => {
         hideTyping();
+        if (bubbleEl) linkifyContent(bubbleEl);
         isLoading = false;
         sendBtn.disabled = false;
         input.focus();
