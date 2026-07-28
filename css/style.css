@@ -524,37 +524,37 @@ img {
 
 /* ─── HERO HOVER EFFECTS ─── */
 .hero-skills-strip .skill-tag {
-  transition: all 0.35s var(--ease-out);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
   cursor: default;
 }
 
 .hero-skills-strip .skill-tag:hover {
   background: rgba(252, 170, 45, 0.25) !important;
   border-color: rgba(252, 170, 45, 0.6) !important;
-  transform: translateY(-3px) scale(1.08);
+  transform: translateY(-3px) scale(1.08) !important;
   box-shadow: 0 8px 24px rgba(252, 170, 45, 0.2);
 }
 
 .hero-social a {
-  transition: all 0.3s var(--ease-out);
+  transition: transform 0.3s var(--ease-out), color 0.3s var(--ease-out), filter 0.3s var(--ease-out);
 }
 
 .hero-social a:hover {
-  transform: translateY(-4px) scale(1.15);
+  transform: translateY(-4px) scale(1.15) !important;
   color: var(--brand) !important;
   filter: drop-shadow(0 4px 12px rgba(252, 170, 45, 0.3));
 }
 
 .hero-photo {
-  transition: all 0.7s var(--ease-out);
+  transition: transform 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
 }
 
 .hero-photo:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.02) !important;
 }
 
 .hero-photo img {
-  transition: all 0.7s var(--ease-out);
+  transition: border-radius 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
 }
 
 .hero-photo:hover img {
@@ -563,7 +563,7 @@ img {
 }
 
 .hero-photo::before {
-  transition: all 0.7s var(--ease-out);
+  transition: transform 0.7s var(--ease-out), opacity 0.7s var(--ease-out);
 }
 
 .hero-photo:hover::before {
@@ -572,11 +572,11 @@ img {
 }
 
 .hero-stats .hero-stat-item {
-  transition: all 0.4s var(--ease-out);
+  transition: transform 0.4s var(--ease-out);
 }
 
 .hero-stats .hero-stat-item:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) !important;
 }
 
 .hero-stats .hero-stat-item:hover .hero-stat-number {
@@ -588,7 +588,7 @@ img {
 }
 
 .hero-cta .btn {
-  transition: all 0.35s var(--ease-out);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .hero-cta .btn:hover {
