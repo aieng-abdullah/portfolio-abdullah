@@ -1601,7 +1601,14 @@ img {
 .stat-card .stat-label {
   font-size: 0.9rem;
   color: rgba(243, 235, 228, 0.55);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-card .stat-sub {
+  font-size: 0.75rem;
+  color: rgba(243, 235, 228, 0.35);
+  margin-bottom: 1rem;
+  font-style: italic;
 }
 
 .stat-bar {
