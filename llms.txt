@@ -4,7 +4,7 @@
 
 ## About
 
-Abdullah Al Arif is an AI Engineer with 1.5+ years of experience building production-grade AI systems. He specializes in architecting retrieval-augmented generation pipelines, autonomous agentic workflows, and scalable MLOps infrastructure. His approach is grounded in first principles: trace the math before trusting the framework, benchmark before optimizing, and evaluate before deploying.
+Abdullah Al Arif is an AI Engineer with 2+ years of experience building production-grade AI systems. He specializes in architecting retrieval-augmented generation pipelines, autonomous agentic workflows, and scalable MLOps infrastructure. His approach is grounded in first principles: trace the math before trusting the framework, benchmark before optimizing, and evaluate before deploying.
 
 At Fluvo Soft, Abdullah builds agentic AI systems from the ground up — designing multi-agent architectures with LangGraph, integrating MCP for tool access, and structuring workflows for production-level autonomy.
 

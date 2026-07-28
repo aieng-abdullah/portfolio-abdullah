@@ -2517,6 +2517,37 @@ img {
   line-height: 1.8;
 }
 
+.faq-answer p {
+  margin-bottom: 0.75rem;
+}
+
+.faq-answer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.faq-answer ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.faq-answer ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.faq-answer ul li strong {
+  color: var(--brand);
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .faq-grid {
     grid-template-columns: 1fr;
@@ -2534,6 +2565,14 @@ img {
 
 .u-theme-light .faq-answer {
   color: rgba(24, 19, 18, 0.65);
+}
+
+.u-theme-light .faq-answer ul li {
+  color: rgba(24, 19, 18, 0.65);
+}
+
+.u-theme-light .faq-answer ul li strong {
+  color: var(--brand);
 }
 
 /* ═══════════════════════════════════════════════

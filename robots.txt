@@ -1,5 +1,5 @@
 # robots.txt — Abdullah Al Arif Portfolio
-# https://aieng-abdullah.github.io/portfolio
+# https://aieng-abdullah.github.io/portfolio-abdullah
 
 User-agent: *
 Allow: /
@@ -30,4 +30,4 @@ Allow: /
 User-agent: Bytespider
 Disallow: /
 
-Sitemap: https://aieng-abdullah.github.io/portfolio/sitemap.xml
+Sitemap: https://aieng-abdullah.github.io/portfolio-abdullah/sitemap.xml
