@@ -1,22 +1,22 @@
 :root {
-  --dark: #0f0d0c;
-  --dark-secondary: #1a1817;
-  --light: #faf8f5;
-  --light-secondary: #f0ece6;
+  --dark: #181312;
+  --dark-secondary: #2e2927;
+  --light: #f5f0eb;
+  --light-secondary: #ebe4dc;
   --brand: #fcaa2d;
   --brand-hover: #e69a25;
   --transparent: transparent;
 
-  --dark-70: rgba(15, 13, 12, 0.7);
-  --light-70: rgba(250, 248, 245, 0.7);
-  --light-8: rgba(250, 248, 245, 0.08);
-  --light-16: rgba(250, 248, 245, 0.16);
-  --dark-16: rgba(15, 13, 12, 0.16);
+  --dark-70: rgba(24, 19, 18, 0.7);
+  --light-70: rgba(245, 240, 235, 0.7);
+  --light-8: rgba(245, 240, 235, 0.08);
+  --light-16: rgba(245, 240, 235, 0.16);
+  --dark-16: rgba(24, 19, 18, 0.16);
 
-  --border-light: rgba(15, 13, 12, 0.08);
-  --border-dark: rgba(250, 248, 245, 0.12);
+  --border-light: rgba(24, 19, 18, 0.1);
+  --border-dark: rgba(245, 240, 235, 0.15);
 
-  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --radius-sm: 0.5rem;
@@ -29,23 +29,23 @@
 [data-theme="light"] {
   --bg: #ffffff;
   --bg-alt: var(--light);
-  --text: var(--dark);
-  --text-secondary: rgba(15, 13, 12, 0.7);
-  --text-muted: rgba(15, 13, 12, 0.5);
+  --text: #1a1817;
+  --text-secondary: rgba(26, 24, 23, 0.7);
+  --text-muted: rgba(26, 24, 23, 0.5);
   --card-bg: #ffffff;
-  --card-border: rgba(15, 13, 12, 0.06);
+  --card-border: rgba(24, 19, 18, 0.08);
   --nav-bg: rgba(255, 255, 255, 0.92);
-  --input-bg: rgba(15, 13, 12, 0.03);
+  --input-bg: rgba(24, 19, 18, 0.03);
 }
 
 [data-theme="dark"] {
   --bg: var(--dark);
   --bg-alt: var(--dark-secondary);
-  --text: #e8e2da;
-  --text-secondary: rgba(232, 226, 218, 0.7);
-  --text-muted: rgba(232, 226, 218, 0.45);
+  --text: #ebe4dc;
+  --text-secondary: rgba(235, 228, 220, 0.7);
+  --text-muted: rgba(235, 228, 220, 0.5);
   --card-bg: var(--dark-secondary);
   --card-border: var(--border-dark);
-  --nav-bg: rgba(15, 13, 12, 0.92);
-  --input-bg: rgba(250, 248, 245, 0.05);
+  --nav-bg: rgba(24, 19, 18, 0.92);
+  --input-bg: rgba(245, 240, 235, 0.05);
 }
