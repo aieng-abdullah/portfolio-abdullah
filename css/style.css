@@ -2329,3 +2329,268 @@ img {
 .u-theme-light .faq-answer {
   color: rgba(24, 19, 18, 0.65);
 }
+
+/* ═══════════════════════════════════════════════
+   PREMIUM FEATURES
+   ═══════════════════════════════════════════════ */
+
+/* ─── 1. SCROLL PROGRESS BAR ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), #fcd34d);
+  z-index: 10001;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(252, 170, 45, 0.5);
+}
+
+/* ─── 2. CURSOR FOLLOWER ─── */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--brand);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.15s var(--ease-out), opacity 0.3s;
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(252, 170, 45, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s, width 0.3s, height 0.3s;
+  opacity: 0;
+}
+
+.cursor-dot.active,
+.cursor-glow.active {
+  opacity: 1;
+}
+
+.cursor-glow.hover {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(252, 170, 45, 0.4) 0%, transparent 70%);
+}
+
+/* ─── 3. PROJECT CARD TILT ─── */
+.project-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card-visual {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.project-card:hover .project-card-visual {
+  transform: translateZ(20px);
+}
+
+/* ─── 4. SCROLL-TO-TOP ─── */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 1px solid rgba(252, 170, 45, 0.3);
+  color: var(--brand);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s var(--ease-out);
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--brand);
+  color: var(--dark);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(252, 170, 45, 0.4);
+}
+
+.scroll-top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ─── 5. NAVBAR BLUR ─── */
+.navbar.scrolled {
+  background: rgba(24, 19, 18, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid rgba(252, 170, 45, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.u-theme-light .navbar.scrolled {
+  background: rgba(245, 240, 232, 0.85) !important;
+}
+
+/* ─── 6. TEXT SCRAMBLE ─── */
+.hero-heading .line-inner {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-heading .line-inner.scrambling {
+  animation: textGlitch 0.1s steps(2) infinite;
+}
+
+@keyframes textGlitch {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; transform: translateX(1px); }
+  100% { opacity: 1; transform: translateX(-1px); }
+}
+
+/* ─── 7. ANIMATED COUNTERS ─── */
+.hero-stat-number {
+  display: inline-block;
+}
+
+.hero-stat-number.counting {
+  animation: countPulse 0.3s ease-in-out;
+}
+
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* ─── 8. PARALLAX HERO ─── */
+.hero-bg {
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════
+   UI/UX POLISH
+   ═══════════════════════════════════════════════ */
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Better focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Smooth image loading */
+img {
+  opacity: 1;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Better scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(252, 170, 45, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(252, 170, 45, 0.5);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(252, 170, 45, 0.3);
+  color: var(--text);
+}
+
+/* Smooth hover transitions for all interactive elements */
+.btn,
+.project-card,
+.experience-card-new,
+.faq-item,
+.skill-card,
+.cert-card,
+.stat-card {
+  will-change: transform, box-shadow;
+}
+
+/* Section divider lines */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--brand);
+  margin: 1.5rem auto;
+  opacity: 0.6;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+  .nav-links a,
+  .btn,
+  .theme-toggle,
+  .nav-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .hero-skills-strip .skill-tag {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .chat-fab,
+  .chat-panel,
+  .scroll-top-btn,
+  .cursor-dot,
+  .cursor-glow,
+  .scroll-progress,
+  .hero-bg {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
