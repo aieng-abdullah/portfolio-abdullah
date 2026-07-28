@@ -78,15 +78,15 @@ img {
 }
 
 .u-theme-light {
-  background: #ffffff;
+  background: #f8f4ee;
   color: var(--dark);
-  --bg: #ffffff;
-  --bg-alt: var(--light);
-  --card-bg: #ffffff;
-  --card-border: rgba(24, 19, 18, 0.08);
-  --input-bg: rgba(24, 19, 18, 0.03);
-  --nav-bg: rgba(255, 255, 255, 0.92);
-  --text-secondary: rgba(26, 24, 23, 0.7);
+  --bg: #f8f4ee;
+  --bg-alt: #f0ebe3;
+  --card-bg: #fdfbf8;
+  --card-border: rgba(44, 36, 32, 0.08);
+  --input-bg: rgba(44, 36, 32, 0.03);
+  --nav-bg: rgba(248, 244, 238, 0.92);
+  --text-secondary: rgba(44, 36, 32, 0.7);
 }
 
 .u-theme-light * {
@@ -109,7 +109,7 @@ img {
 .u-theme-light .skill-card h3,
 .u-theme-light .experience-header h3,
 .u-theme-light .section-heading {
-  color: #1a1817;
+  color: #2c2420;
 }
 
 .u-theme-light .skill-tag,
@@ -129,13 +129,13 @@ img {
 }
 
 .u-theme-light .about-text {
-  background: #ffffff;
-  border: 1px solid rgba(24, 19, 18, 0.06);
+  background: #fdfbf8;
+  border: 1px solid rgba(44, 36, 32, 0.06);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
 }
 
 .u-theme-light .about-text p {
-  color: #1a1817;
+  color: #2c2420;
 }
 
 .u-theme-light .about-text strong {
@@ -143,8 +143,8 @@ img {
 }
 
 .u-theme-light .skill-card {
-  background: #ffffff;
-  border: 1px solid rgba(24, 19, 18, 0.06);
+  background: #fdfbf8;
+  border: 1px solid rgba(44, 36, 32, 0.06);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
@@ -153,13 +153,13 @@ img {
 }
 
 .u-theme-light .skill-card-featured {
-  background: linear-gradient(135deg, rgba(252, 170, 45, 0.05) 0%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(252, 170, 45, 0.05) 0%, #fdfbf8 100%);
   border-color: rgba(252, 170, 45, 0.12);
 }
 
 .u-theme-light .experience-card-new {
-  background: #ffffff;
-  border: 1px solid rgba(24, 19, 18, 0.06);
+  background: #fdfbf8;
+  border: 1px solid rgba(44, 36, 32, 0.06);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
@@ -169,8 +169,8 @@ img {
 }
 
 .u-theme-light .experience-logo-large {
-  background: #ffffff;
-  border: 1px solid rgba(24, 19, 18, 0.06);
+  background: #fdfbf8;
+  border: 1px solid rgba(44, 36, 32, 0.06);
 }
 
 .u-theme-light .experience-wrapper::before {
@@ -188,11 +188,11 @@ img {
 }
 
 .u-theme-light .highlight-item p {
-  color: rgba(26, 24, 23, 0.8);
+  color: rgba(44, 36, 32, 0.8);
 }
 
 .u-theme-light .experience-header h3 {
-  color: #1a1817;
+  color: #2c2420;
 }
 
 .u-theme-light .experience-header .experience-company {
@@ -200,7 +200,7 @@ img {
 }
 
 .u-theme-light .experience-meta span {
-  color: rgba(26, 24, 23, 0.5);
+  color: rgba(44, 36, 32, 0.5);
 }
 
 .u-theme-light .stat-card .stat-number {
@@ -2522,8 +2522,9 @@ img {
 }
 
 .u-theme-light .cert-card {
-  box-shadow: 0 8px 28px rgba(16, 24, 32, 0.06);
-  border: 1px solid rgba(16, 24, 32, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(44, 36, 32, 0.06);
+  background: #fdfbf8;
 }
 
 .u-theme-light .cert-card-skills span {
@@ -2576,16 +2577,17 @@ img {
 }
 
 .u-theme-light .faq-item {
-  box-shadow: 0 8px 28px rgba(16, 24, 32, 0.06);
-  border: 1px solid rgba(16, 24, 32, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(44, 36, 32, 0.06);
+  background: #fdfbf8;
 }
 
 .u-theme-light .faq-question {
-  color: rgba(24, 19, 18, 0.95);
+  color: #2c2420;
 }
 
 .u-theme-light .faq-answer {
-  color: rgba(24, 19, 18, 0.65);
+  color: rgba(44, 36, 32, 0.6);
 }
 
 /* ═══════════════════════════════════════════════
@@ -2705,7 +2707,7 @@ img {
 }
 
 .u-theme-light .navbar.scrolled {
-  background: rgba(245, 240, 232, 0.85) !important;
+  background: rgba(248, 244, 238, 0.85) !important;
 }
 
 /* ─── 6. TEXT REVEAL ─── */
