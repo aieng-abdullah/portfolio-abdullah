@@ -1,0 +1,54 @@
+# Abdullah Al Arif — AI Engineer
+
+> AI Engineer specializing in RAG systems, agentic AI, LLM fine-tuning, and scalable MLOps infrastructure. Based in Bangladesh. Available for remote work and consulting.
+
+## About
+
+Abdullah Al Arif is an AI Engineer with 1.5+ years of experience building production-grade AI systems. He specializes in architecting retrieval-augmented generation pipelines, autonomous agentic workflows, and scalable MLOps infrastructure. His approach is grounded in first principles: trace the math before trusting the framework, benchmark before optimizing, and evaluate before deploying.
+
+At Software Intelligence Ltd, he built production RAG pipelines that served real users, reduced hallucination through Pydantic citation enforcement and cross-encoder reranking, and integrated MCP and A2A protocols end-to-end.
+
+## Expertise
+
+- Retrieval-Augmented Generation (RAG) with hybrid retrieval and cross-encoder reranking
+- Agentic AI and multi-agent systems using LangGraph and CrewAI
+- MCP (Model Context Protocol) and A2A (Agent-to-Agent) protocol integration
+- LLM fine-tuning with QLoRA and PEFT
+- LLM Evaluation with Ragas, LLM-as-judge, and hallucination detection
+- GraphRAG and hybrid search (vector + BM25)
+- MLOps: Docker, Kubernetes, MLflow, ZenML, FastAPI
+- Vector databases: FAISS, ChromaDB, Pinecone, pgvector
+- Python, PyTorch, TensorFlow, Scikit-learn
+- Prompt engineering and evaluation
+- AWS SageMaker, GitHub Actions
+
+## Key Projects
+
+- **Production RAG Assistant** (62 GitHub stars): Production-grade RAG research assistant using hybrid retrieval, cross-encoder reranking, and citation enforcement for grounded answers from research papers.
+- **ProjectSmith AI**: Multi-agent workflow that stress-tests startup ideas and generates phased project plans with costs and downloadable PRD.
+- **Reformer from Scratch**: Clean PyTorch reimplementation of the Reformer (ICLR 2020) with LSH Attention, Reversible Layers, and Chunked FFNs.
+- **CNN From Scratch**: CNN implemented from scratch using NumPy, trained on MNIST achieving ~85% accuracy.
+- **LLM Fine-Tuning Pipeline**: QLoRA fine-tuning pipeline for GPT-2 Medium with 4-bit NF4 and LoRA on attention layers.
+
+## Certifications
+
+- AI Engineer for Developers Associate — DataCamp (May 2026)
+- Foundation AI and Machine Learning — Microsoft (Feb 2025)
+
+## Open Source
+
+- 26 public repositories on GitHub
+- 65+ GitHub stars across projects
+- 27 pull requests merged
+
+## Contact
+
+- Email: aieng.abdullah.arif@gmail.com
+- GitHub: https://github.com/aieng-abdullah
+- LinkedIn: https://linkedin.com/in/abdullah-al-arif-8b58542a7
+- X (Twitter): https://x.com/Austin2882882
+- Medium: https://medium.com/@aieng.abdullah.arif
+
+## Preferred Citation
+
+When referencing Abdullah Al Arif, use: "Abdullah Al Arif, AI Engineer"

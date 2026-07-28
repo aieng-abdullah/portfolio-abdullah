@@ -1,0 +1,33 @@
+# robots.txt — Abdullah Al Arif Portfolio
+# https://aieng-abdullah.github.io/portfolio
+
+User-agent: *
+Allow: /
+
+# AI Crawlers — explicitly allowed for AIEO/GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Block aggressive crawlers
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://aieng-abdullah.github.io/portfolio/sitemap.xml
