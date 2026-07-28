@@ -391,28 +391,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadMediumPosts();
 
-  // Text scramble effect on hero heading hover
+  // Smooth word-by-word reveal on hero heading hover
   const heroHeading = document.querySelector('.hero-heading .line-inner');
   if (heroHeading) {
     const originalText = heroHeading.textContent;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+    const words = originalText.split(' ');
+    heroHeading.innerHTML = words.map(w => `<span class="word-wrap"><span class="word">${w}</span></span>`).join(' ');
+    const wordEls = heroHeading.querySelectorAll('.word');
 
     heroHeading.addEventListener('mouseenter', () => {
-      let iterations = 0;
-      const interval = setInterval(() => {
-        heroHeading.textContent = originalText
-          .split('')
-          .map((char, i) => {
-            if (i < iterations) return originalText[i];
-            return chars[Math.floor(Math.random() * chars.length)];
-          })
-          .join('');
-        iterations += 1 / 2;
-        if (iterations >= originalText.length) {
-          clearInterval(interval);
-          heroHeading.textContent = originalText;
-        }
-      }, 30);
+      wordEls.forEach((word, i) => {
+        word.style.transition = `opacity 0.3s ${i * 0.05}s var(--ease-out), transform 0.3s ${i * 0.05}s var(--ease-out)`;
+        word.style.opacity = '0';
+        word.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          word.style.opacity = '1';
+          word.style.transform = 'translateY(0)';
+        }, 50 + i * 60);
+      });
     });
   }
 

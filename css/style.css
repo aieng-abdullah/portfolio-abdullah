@@ -2450,20 +2450,22 @@ img {
   background: rgba(245, 240, 232, 0.85) !important;
 }
 
-/* ─── 6. TEXT SCRAMBLE ─── */
+/* ─── 6. TEXT REVEAL ─── */
 .hero-heading .line-inner {
   position: relative;
   display: inline-block;
 }
 
-.hero-heading .line-inner.scrambling {
-  animation: textGlitch 0.1s steps(2) infinite;
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.25em;
 }
 
-@keyframes textGlitch {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; transform: translateX(1px); }
-  100% { opacity: 1; transform: translateX(-1px); }
+.word {
+  display: inline-block;
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
 /* ─── 7. ANIMATED COUNTERS ─── */
