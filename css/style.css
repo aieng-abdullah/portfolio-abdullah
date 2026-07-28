@@ -501,6 +501,105 @@ img {
   background: #8b5e3c;
 }
 
+/* ─── HERO ENTRANCE ANIMATIONS (Framer Motion style) ─── */
+.hero-skills-strip .skill-tag {
+  opacity: 0;
+  transform: translateY(16px) scale(0.92);
+}
+
+.hero-social a {
+  opacity: 0;
+  transform: translateY(12px) scale(0.8);
+}
+
+.hero-stats .hero-stat-item {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.hero-photo {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+}
+
+/* ─── HERO HOVER EFFECTS ─── */
+.hero-skills-strip .skill-tag {
+  transition: all 0.35s var(--ease-out);
+  cursor: default;
+}
+
+.hero-skills-strip .skill-tag:hover {
+  background: rgba(252, 170, 45, 0.25) !important;
+  border-color: rgba(252, 170, 45, 0.6) !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(252, 170, 45, 0.2);
+}
+
+.hero-social a {
+  transition: all 0.3s var(--ease-out);
+}
+
+.hero-social a:hover {
+  transform: translateY(-4px) scale(1.15);
+  color: var(--brand) !important;
+  filter: drop-shadow(0 4px 12px rgba(252, 170, 45, 0.3));
+}
+
+.hero-photo {
+  transition: all 0.7s var(--ease-out);
+}
+
+.hero-photo:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.hero-photo img {
+  transition: all 0.7s var(--ease-out);
+}
+
+.hero-photo:hover img {
+  border-radius: 16px;
+  box-shadow: 0 32px 80px rgba(252, 170, 45, 0.15);
+}
+
+.hero-photo::before {
+  transition: all 0.7s var(--ease-out);
+}
+
+.hero-photo:hover::before {
+  transform: scale(1.25);
+  opacity: 0.9;
+}
+
+.hero-stats .hero-stat-item {
+  transition: all 0.4s var(--ease-out);
+}
+
+.hero-stats .hero-stat-item:hover {
+  transform: translateY(-6px);
+}
+
+.hero-stats .hero-stat-item:hover .hero-stat-number {
+  transform: scale(1.1);
+}
+
+.hero-stats .hero-stat-number {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.hero-cta .btn {
+  transition: all 0.35s var(--ease-out);
+}
+
+.hero-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(252, 170, 45, 0.25);
+}
+
+.hero-cta .btn:active {
+  transform: translateY(-1px);
+}
+
 /* ─── BUTTONS ─── */
 .btn {
   display: inline-flex;

@@ -72,50 +72,67 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScroll = currentScroll;
   });
 
-  // Hero entrance animation
+  // Hero entrance animation (Framer Motion style stagger)
+  const ease = 'cubic-bezier(0.165, 0.84, 0.44, 1)';
+
+  function animateIn(el, delay, opts = {}) {
+    if (!el) return;
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = opts.scale ? 'translateY(0) scale(1)' : 'translateY(0)';
+      el.style.transition = `opacity 0.6s ${ease}, transform 0.6s ${ease}`;
+    }, delay);
+  }
+
   setTimeout(() => {
-    const heroEyebrow = document.querySelector('.hero-eyebrow');
-    const heroLines = document.querySelectorAll('.hero-heading .line-inner');
-    const heroDesc = document.querySelector('.hero-desc');
-    const heroCta = document.querySelector('.hero-cta');
-
-    const heroImage = document.querySelector('.hero-image');
-
-    if (heroImage) {
-      heroImage.style.opacity = '1';
-      heroImage.style.transform = 'translateY(0)';
-      heroImage.style.transition = 'opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
-    }
-
-    if (heroEyebrow) {
-      heroEyebrow.style.opacity = '1';
-      heroEyebrow.style.transform = 'translateY(0)';
-      heroEyebrow.style.transition = 'opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
-    }
-
-    heroLines.forEach((line, i) => {
-      setTimeout(() => {
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
-        line.style.transition = 'opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
-      }, 200 + i * 150);
+    // Skill pills - staggered fade in
+    const skillPills = document.querySelectorAll('.hero-skills-strip .skill-tag');
+    skillPills.forEach((pill, i) => {
+      animateIn(pill, 100 + i * 60, { scale: true });
     });
 
-    if (heroDesc) {
+    // Eyebrow
+    animateIn(document.querySelector('.hero-eyebrow'), 200);
+
+    // Name - slide up
+    const heroLines = document.querySelectorAll('.hero-heading .line-inner');
+    heroLines.forEach((line, i) => {
+      animateIn(line, 350 + i * 150);
+    });
+
+    // Role badges
+    const roleBadges = document.querySelectorAll('.hero-left .skill-tag-featured');
+    roleBadges.forEach((badge, i) => {
+      animateIn(badge, 650 + i * 100, { scale: true });
+    });
+
+    // Description
+    animateIn(document.querySelector('.hero-desc'), 750);
+
+    // Social icons - staggered pop
+    const socialIcons = document.querySelectorAll('.hero-social a');
+    socialIcons.forEach((icon, i) => {
+      animateIn(icon, 850 + i * 80, { scale: true });
+    });
+
+    // CTA buttons
+    animateIn(document.querySelector('.hero-cta'), 1100);
+
+    // Hero photo - slide up with scale
+    const heroPhoto = document.querySelector('.hero-photo');
+    if (heroPhoto) {
       setTimeout(() => {
-        heroDesc.style.opacity = '1';
-        heroDesc.style.transform = 'translateY(0)';
-        heroDesc.style.transition = 'opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1)';
-      }, 600);
+        heroPhoto.style.opacity = '1';
+        heroPhoto.style.transform = 'translateY(0) scale(1)';
+        heroPhoto.style.transition = `opacity 0.8s ${ease}, transform 0.8s ${ease}`;
+      }, 400);
     }
 
-    if (heroCta) {
-      setTimeout(() => {
-        heroCta.style.opacity = '1';
-        heroCta.style.transform = 'translateY(0)';
-        heroCta.style.transition = 'opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1)';
-      }, 800);
-    }
+    // Stats - staggered rise
+    const statItems = document.querySelectorAll('.hero-stats .hero-stat-item');
+    statItems.forEach((stat, i) => {
+      animateIn(stat, 1200 + i * 120);
+    });
   }, 300);
 
   // Matrix background
